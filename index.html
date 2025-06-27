@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Invoice Processing ROI Calculator | Lleverage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>AI Invoice Processing ROI Calculator</h1>
+            <p class="hero-subtitle">Calculate your potential savings from Lleverage AI-powered invoice automation. Companies typically save €100K+ annually while achieving 99% accuracy.</p>
+        </header>
+
+        <main class="calculator-container">
+            <div class="input-section">
+                <h2>Your Current State</h2>
+                <p class="section-description">Enter your current invoice processing details to see the potential impact of AI automation</p>
+                
+                <div class="input-group">
+                    <label for="monthlyVolume">Monthly Invoice Volume</label>
+                    <input type="number" id="monthlyVolume" min="1" value="100" class="input-field" placeholder="Enter number of invoices">
+                </div>
+
+                <div class="input-group">
+                    <label for="processingTime">Processing Time per Invoice (minutes)</label>
+                    <div class="range-container">
+                        <input type="range" id="processingTime" min="5" max="30" value="17.5" class="range-slider">
+                        <span class="range-value" id="processingTimeValue">17.5 min</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="staffCost">Staff Cost per Hour (€)</label>
+                    <div class="range-container">
+                        <input type="range" id="staffCost" min="25" max="70" value="40" class="range-slider">
+                        <span class="range-value" id="staffCostValue">40 €</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="errorRate">Error Rate (%)</label>
+                    <div class="range-container">
+                        <input type="range" id="errorRate" min="1" max="15" value="7.5" step="0.5" class="range-slider">
+                        <span class="range-value" id="errorRateValue">7.5%</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="avgInvoiceValue">Average Invoice Value (€)</label>
+                    <input type="number" id="avgInvoiceValue" min="1" value="5000" class="input-field" placeholder="Enter average invoice amount">
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="current-costs">
+                    <h3>Current Annual Costs</h3>
+                    <div class="cost-item">
+                        <span>Labor Costs:</span>
+                        <span id="currentLaborCosts">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Late Payment Penalties:</span>
+                        <span id="currentLatePenalties">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Lost Early Pay Discounts:</span>
+                        <span id="currentLostDiscounts">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Duplicate Payments:</span>
+                        <span id="currentDuplicatePayments">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Audit & Compliance:</span>
+                        <span id="currentAuditCosts">€0</span>
+                    </div>
+                    <div class="cost-item total">
+                        <span>Total Annual Cost:</span>
+                        <span id="currentTotalCost">€0</span>
+                    </div>
+                </div>
+
+                <div class="ai-costs">
+                    <h3>Costs with Lleverage AI</h3>
+                    <div class="cost-item">
+                        <span>Labor Costs:</span>
+                        <span id="aiLaborCosts">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Late Payment Penalties:</span>
+                        <span id="aiLatePenalties">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Lost Early Pay Discounts:</span>
+                        <span id="aiLostDiscounts">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Duplicate Payments:</span>
+                        <span id="aiDuplicatePayments">€0</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Audit & Compliance:</span>
+                        <span id="aiAuditCosts">€0</span>
+                    </div>
+                    <div class="cost-item total">
+                        <span>Total Annual Cost:</span>
+                        <span id="aiTotalCost">€0</span>
+                    </div>
+                </div>
+
+                <div class="benefits">
+                    <h3>Benefits from your staff creating actual value somewhere else</h3>
+                    <div class="benefit-item">
+                        <span>Staff Value Creation:</span>
+                        <span class="infinity">∞</span>
+                    </div>
+                </div>
+
+                <div class="savings">
+                    <h3>Annual Savings with Lleverage</h3>
+                    <div class="savings-amount" id="annualSavings">€0</div>
+                    <div class="savings-percentage" id="savingsPercentage">0%</div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="cta-section">
+            <h2>Ready to transform your invoice processing?</h2>
+            <p>Join hundreds of companies already saving time and money with Lleverage AI. Automate your workflows without needing AI expertise.</p>
+            <a href="https://www.lleverage.ai" class="cta-button">Get Started with Lleverage</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

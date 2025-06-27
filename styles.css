@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #ffffff;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #1f2937;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.input-section, .results-section {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 40px rgba(95, 0, 182, 0.04);
+}
+
+.input-section h2, .results-section h3 {
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.input-group {
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.875rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #5f00b6;
+    box-shadow: 0 0 0 3px rgba(95, 0, 182, 0.1);
+}
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.range-slider {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: #e5e7eb;
+    outline: none;
+    -webkit-appearance: none;
+    transition: all 0.2s ease;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #5f00b6;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+    background: #4c0094;
+    transform: scale(1.1);
+}
+
+.range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #5f00b6;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.range-value {
+    min-width: 60px;
+    text-align: right;
+    font-weight: 600;
+    color: #5f00b6;
+    font-size: 0.95rem;
+}
+
+.cost-item, .benefit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+}
+
+.cost-item:last-child, .benefit-item:last-child {
+    border-bottom: none;
+}
+
+.cost-item.total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1f2937;
+    border-top: 2px solid #e5e7eb;
+    border-bottom: none;
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+}
+
+.current-costs, .ai-costs, .benefits {
+    margin-bottom: 2.5rem;
+}
+
+.current-costs h3 {
+    color: #dc2626;
+    font-size: 1.25rem;
+}
+
+.ai-costs h3 {
+    color: #059669;
+    font-size: 1.25rem;
+}
+
+.benefits h3 {
+    color: #5f00b6;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.infinity {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #5f00b6;
+}
+
+.savings {
+    text-align: center;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #5f00b6 0%, #7c3aed 100%);
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 8px 40px rgba(95, 0, 182, 0.15);
+}
+
+.savings h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.savings-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.savings-percentage {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.cta-section {
+    text-align: center;
+    color: #1f2937;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(95, 0, 182, 0.04);
+}
+
+.cta-section h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.cta-section p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: #5f00b6;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background: #4c0094;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .range-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .range-value {
+        text-align: center;
+    }
+    
+    .savings-amount {
+        font-size: 2.5rem;
+    }
+    
+    .input-section, .results-section {
+        padding: 2rem;
+    }
+    
+    .cta-section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .input-section, .results-section {
+        padding: 1.5rem;
+    }
+    
+    .savings {
+        padding: 2rem;
+    }
+    
+    .cta-section {
+        padding: 1.5rem;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.75rem;
+    }
+} 
