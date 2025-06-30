@@ -21,6 +21,7 @@ const aiLatePenalties = document.getElementById('aiLatePenalties');
 const aiLostDiscounts = document.getElementById('aiLostDiscounts');
 const aiDuplicatePayments = document.getElementById('aiDuplicatePayments');
 const aiAuditCosts = document.getElementById('aiAuditCosts');
+const aiImplementationCosts = document.getElementById('aiImplementationCosts');
 const aiTotalCost = document.getElementById('aiTotalCost');
 
 const annualSavings = document.getElementById('annualSavings');
@@ -63,25 +64,37 @@ function calculateROI() {
     
     // Current costs calculations
     const currentLabor = annualHours * costPerHour;
-    const currentLatePenalties = (avgValue * annualVolume * 0.05) / 3; // Divided by 3 as per feedback
-    const currentLostDiscounts = (avgValue * annualVolume * 0.02) / 10; // Divided by 10 as per feedback
-    const currentDuplicatePayments = avgValue * annualVolume * (errorRatePercent / 100) * 0.1;
-    const currentAudit = currentLabor * 0.15; // 15% of labor costs for audit
+    const currentLatePenalties = ((avgValue * annualVolume * 0.02) / 12) / 3; // 2% of invoice value, monthly average, divided by 3
+    const currentLostDiscounts = ((avgValue * annualVolume * 0.01) / 12) / 10; // 1% of invoice value, monthly average, divided by 10
+    const currentDuplicatePayments = avgValue * annualVolume * (errorRatePercent / 100) * 0.05; // 5% of error value
+    const currentAudit = currentLabor * 0.1; // 10% of labor costs for audit
     
     const currentTotal = currentLabor + currentLatePenalties + currentLostDiscounts + currentDuplicatePayments + currentAudit;
 
     // AI costs calculations (with reductions)
     const aiLabor = currentLabor * 0.2; // 80% reduction
     const aiLatePenalties = currentLatePenalties * 0.4; // 60% reduction
-    const aiLostDiscounts = currentLostDiscounts * 0.4; // 60% reduction
+    const aiLostDiscounts = currentLostDiscounts * 0.1; // 90% reduction
     const aiDuplicatePayments = currentDuplicatePayments * 0.1; // 90% reduction
     const aiAudit = currentAudit * 0.3; // 70% reduction
     
-    const aiTotal = aiLabor + aiLatePenalties + aiLostDiscounts + aiDuplicatePayments + aiAudit;
+    // Implementation costs (realistic based on volume and complexity)
+    const baseImplementationCost = 5000;
+    const volumeMultiplier = Math.max(0.8, Math.min(1.5, annualVolume / 1200));
+    const complexityMultiplier = 1 + (errorRatePercent / 200);
+    const aiImplementation = baseImplementationCost * volumeMultiplier * complexityMultiplier;
+    
+    const aiTotal = aiLabor + aiLatePenalties + aiLostDiscounts + aiDuplicatePayments + aiAudit + aiImplementation;
 
     // Savings calculations
     const savings = currentTotal - aiTotal;
     const savingsPercent = currentTotal > 0 ? (savings / currentTotal) * 100 : 0;
+
+    // Payback period (months)
+    let paybackPeriod = 0;
+    if (aiImplementation > 0 && savings > 0) {
+        paybackPeriod = Math.ceil(aiImplementation / (savings / 12));
+    }
 
     // Update display
     updateDisplay(currentLaborCosts, currentLabor);
@@ -96,10 +109,12 @@ function calculateROI() {
     updateDisplay(aiLostDiscounts, aiLostDiscounts);
     updateDisplay(aiDuplicatePayments, aiDuplicatePayments);
     updateDisplay(aiAuditCosts, aiAudit);
+    updateDisplay(aiImplementationCosts, aiImplementation);
     updateDisplay(aiTotalCost, aiTotal);
 
     updateDisplay(annualSavings, savings);
     savingsPercentage.textContent = `${savingsPercent.toFixed(1)}%`;
+    document.getElementById('paybackPeriod').textContent = paybackPeriod > 0 ? `${paybackPeriod} months` : 'N/A';
 
     // Add animation to savings when they change
     if (savings > 0) {
