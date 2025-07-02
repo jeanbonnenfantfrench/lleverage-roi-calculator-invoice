@@ -155,10 +155,22 @@
         <footer class="cta-section">
             <h2>Ready to transform your invoice processing?</h2>
             <p>Join hundreds of companies already saving time and money with Lleverage AI. Automate your workflows without needing AI expertise.</p>
-            <a href="https://www.lleverage.ai/book-a-demo?utm_campaign=roi-invoice-processing" class="cta-button">Book a Demo</a>
+            <a href="https://www.lleverage.ai/book-a-demo?utm_campaign=roi-invoice-processing" class="cta-button" target="_blank" rel="noopener noreferrer">Book a Demo</a>
         </footer>
     </div>
 
     <script src="script.js"></script>
+    <script>
+    // Fallback: always enforce UTM on Book a Demo button
+    const demoBtn = document.querySelector('a.cta-button');
+    if (demoBtn) {
+      demoBtn.addEventListener('click', function(e) {
+        const utm = 'utm_campaign=roi-invoice-processing';
+        if (!this.href.includes(utm)) {
+          this.href = this.href + (this.href.includes('?') ? '&' : '?') + utm;
+        }
+      });
+    }
+    </script>
 </body>
 </html> 
