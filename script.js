@@ -164,29 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
     calculateROI();
     updateFteCountDisplay();
     updateErrorRateDisplay();
-    
-    // Add smooth animations
-    const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => {
-        input.addEventListener('change', function() {
-            this.style.transform = 'scale(1.02)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-        });
-    });
-
-    // Add hover effects to range sliders
-    const rangeSliders = document.querySelectorAll('.range-slider');
-    rangeSliders.forEach(slider => {
-        slider.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
-        });
-        
-        slider.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
 });
 
 // Add keyboard navigation

@@ -65,7 +65,7 @@ body {
 }
 
 .input-section:hover, .results-section:hover {
-    transform: translateY(-5px);
+    transform: none;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
 }
 
@@ -142,7 +142,7 @@ body {
 }
 
 .range-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
+    transform: none;
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
@@ -181,8 +181,8 @@ body {
 .cost-item:hover, .benefit-item:hover {
     background: rgba(102, 126, 234, 0.02);
     border-radius: 8px;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .cost-item:last-child, .benefit-item:last-child {
@@ -317,7 +317,7 @@ body {
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
+    transform: none;
     box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
     background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
